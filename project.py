@@ -12,7 +12,7 @@ features=pd.read_csv("features.csv")
 stores=pd.read_csv("stores.csv")
 train=pd.read_csv("train.csv")
 test=pd.read_csv("test.csv")
-#reseting train
+#resetting train
 train=train.groupby(['Store','Date'])['Weekly_Sales'].sum()
 train=train.reset_index()
 train.head(10)
@@ -21,4 +21,7 @@ data=pd.merge(train,features,on=['Store','Date'],how='inner')
 data.head(10)
 #marging store with data
 data=pd.merge(data,stores,on=['Store'],how='inner')
+data.head(10)
+#sorting values of Data
+data=data.sort_values(by='Date')
 data.head(10)
