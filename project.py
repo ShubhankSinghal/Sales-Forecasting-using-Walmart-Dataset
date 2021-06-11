@@ -66,5 +66,8 @@ X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.3)
 LR=LinearRegression(normalize=True)
 LR.fit(X_train,y_train)
 
-
+y_pred=LR.predict(X_test)
+plt.plot(y_test,y_pred,'ro')
+plt.plot(y_test,y_test,'b-')
+plt.show()
 
