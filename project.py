@@ -58,3 +58,8 @@ data.head(10)
 data=data.drop(['Type','IsHoliday'],axis=1)
 data.drop(10)
 
+#splitting data in input and output
+X=data.drop(['Weekly_Sales','Store','Date'],axis=1)
+y=data['Weekly_Sales']
+X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.3)
+
