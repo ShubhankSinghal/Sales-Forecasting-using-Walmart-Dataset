@@ -63,3 +63,8 @@ X=data.drop(['Weekly_Sales','Store','Date'],axis=1)
 y=data['Weekly_Sales']
 X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.3)
 
+LR=LinearRegression(normalize=True)
+LR.fit(X_train,y_train)
+
+
+
