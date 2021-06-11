@@ -6,6 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from scipy.special import boxcox1p
 import seaborn as sns
+import pickle
 
 #reading data from dataset(csv files)
 features=pd.read_csv("features.csv")
@@ -78,6 +79,8 @@ from sklearn.metrics import r2_score
 r2=r2_score(y_test,y_pred)
 print(r2)
 
+pickle.dump(LR,open('model.pkl','wb'))
+model=pickle.load(open('model.pkl','rb'))
 prediction=LR.predict(pd.DataFrame([(35.37,6.876,154.320056,10.964,503464,1,0,0)]))
 print(prediction)
 
