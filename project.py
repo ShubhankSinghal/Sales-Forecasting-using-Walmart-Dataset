@@ -25,3 +25,36 @@ data.head(10)
 #sorting values of Data
 data=data.sort_values(by='Date')
 data.head(10)
+sns.countplot(x="Type", data=data)
+
+sns.boxplot(x='Type',y='Weekly_Sales',data=data)
+
+data["Weekly_Sales"].plot.hist()
+
+sns.countplot(x="IsHoliday", data=data)
+
+data.isnull().sum()
+
+sns.heatmap(data.isnull(),yticklabels=False, cmap="viridis")
+
+data=data.drop(['MarkDown1','MarkDown2','MarkDown3','MarkDown4','MarkDown5'],axis=1)
+data.head(10)
+
+data.isnull().sum()
+
+
+sns.heatmap(data.isnull(),yticklabels=False, cmap="viridis")
+
+
+data['Holiday']=[int(i) for i in list(data.IsHoliday)]
+data.head(10)
+
+Type_dummy=pd.get_dummies(data['Type'],drop_first=True)
+Type_dummy.head(10)
+
+data=pd.concat([data,Type_dummy],axis=1)
+data.head(10)
+
+data=data.drop(['Type','IsHoliday'],axis=1)
+data.drop(10)
+
