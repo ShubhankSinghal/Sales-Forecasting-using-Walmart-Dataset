@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sales Forcasting Using Walmart Dataset</title>
+  <link rel="stylesheet"  href="{{ url_for('static',  filename='css/style.css') }}">
+  <link rel="icon" href="{{url_for('static',filename='css/favicon.ico')}}" type="image/x-icon">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+ 
+  
+  <div id="page">
+    <header class="container">
+      <div id="menu" class="navbar navbar-default navbar-fixed-top">
+        
+	    <!-- Collection of nav links, forms, and other content for toggling -->
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav" id="Navbar">
+                <li><a href="{{ url_for('home') }}" >Home</a></li>
+		            <li><a href="{{ url_for('prediction') }}" >Sales Prediction</a></li>
+               <li><a href="{{ url_for('about') }}">About Us</a></li>
+               <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
+            </ul>        
+        </div>
+      </div>
+    </header> 
+
+
+	
+   	<section id="body" class="container">
+	    <div class="page-header">
+            <h1>About Us</h1>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Developed By</th>
+                  <th scope="col">Disha Pareek</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Github Repository</th>
+                  <td colspan="2"><a href="https://github.com/Disha1105/Sales-Forecasting-using-Walmart-Dataset.git" target="_blank">Click Here</a></td>
+                  
+                </tr>
+              </tbody>
+            </table>
+          </div>
+	 
+    </section>
+    <hr />
+   
+  </div>
+  <script>
+    function myFunction() {
+      var x = document.getElementById("Navbar");
+      if (x.className === "navbar-nav") {
+        x.className += " responsive";
+      } else {
+        x.className = "navbar-nav";
+      }
+    }
+    </script>
+    {% block content %}
+    {% endblock %}
+  </body>
+  </html>
