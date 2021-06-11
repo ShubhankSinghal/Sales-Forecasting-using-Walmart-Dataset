@@ -71,3 +71,10 @@ plt.plot(y_test,y_pred,'ro')
 plt.plot(y_test,y_test,'b-')
 plt.show()
 
+Root_mean_square_error=np.sqrt(np.mean(np.square(y_test-y_pred)))
+print(Root_mean_square_error)
+
+from sklearn.metrics import r2_score
+r2=r2_score(y_test,y_pred)
+print(r2)
+
