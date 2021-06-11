@@ -1,27 +1,33 @@
-<!DOCTYPE HTML>
-<HTML>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sales Forcasting Using Walmart Dataset</title>
+  <link rel="stylesheet"  href="{{ url_for('static',  filename='css/style.css') }}">
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <link rel="icon" href="{{url_for('static',filename='css/favicon.ico')}}" type="image/x-icon">
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div id="page">
+  <div id="page">
     <header class="container">
       <div id="menu" class="navbar navbar-default navbar-fixed-top">
         <div id="navbarCollapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav" id="Navbar">
-              <li><a href="#" >Home</a></li>
-              <li><a href="#" >Sales Prediction</a></li>
-             <li><a href="#">About Us</a></li>
+              <li><a href="{{ url_for('home') }}" >Home</a></li>
+              <li><a href="{{ url_for('prediction') }}" >Sales Prediction</a></li>
+             <li><a href="{{ url_for('about') }}">About Us</a></li>
+               <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
             </ul>        
         </div>
       </div>
-    </header>
-section id="body" class="container">
+    </header> 
+
+
+	
+   	<section id="body" class="container">
 	    <div class="page-header">    
             <h1>About Sales Forcasting</h1>
         </div>
@@ -38,9 +44,24 @@ section id="body" class="container">
         There are many factors like Market changes, Product changes, Economic conditions, season changes, etc; which impact to forecast of sales. Companies can make a plane to meet future demands and make improvements in their sales by keeping in mind these various factors.</p>
   
     </section>
-<footer class="container">
+    <hr />
+    <footer class="container">
       <p style="text-align: center;">About walmart<a href="#">WALMART INDIA</a>.</p>
     </footer>
-  </div> 
-</body>
-</HTML>
+  </div>
+  <script>
+    function myFunction() {
+      var x = document.getElementById("Navbar");
+      if (x.className === "navbar-nav") {
+        x.className += " responsive";
+      } else {
+        x.className = "navbar-nav";
+      }
+    }
+    </script>
+       <div class="container">
+        {% block content %}
+        {% endblock %}
+      </div>
+  </body>
+</html>
