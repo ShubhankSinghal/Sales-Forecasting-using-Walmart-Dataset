@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sales Forcasting Using Walmart Dataset</title>
+  <link rel="stylesheet"  href="{{ url_for('static',   filename='css/style.css') }}">
+  <link rel="icon" href="{{url_for('static',filename='css/favicon.ico')}}" type="image/x-icon">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+  
+  <div id="page">
+    <header class="container">
+      <div id="menu" class="navbar navbar-default navbar-fixed-top">
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav" id="Navbar">
+              <li><a href="{{ url_for('home') }}" >Home</a></li>
+              <li><a href="{{ url_for('prediction') }}" >Sales Prediction</a></li>
+             <li><a href="{{ url_for('about') }}">About Us</a></li>
+               <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
+            </ul>        
+        </div>
+      </div>
+    </header> 
+
+
+	
+   	<section id="body" class="container">
+	    <div class="page-header">
+            <h1>Enter Required Details</h1>
+            <h4>For Forcasting</h4>
+        </div>
+        <form method="POST" action="{{ url_for('predict') }}" >
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label for="validationDefault01">Temperature</label>
+                <input type="text" class="form-control" name="temp" id="validationDefault01" placeholder="Enter the Temperature"  required>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="validationDefault02">Fuel Price</label>
+                <input type="text" name="fuel" class="form-control" id="validationDefault02" placeholder="Enter the Fuel price"  required>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="validationDefault08">CPI</label>
+                <div class="input-group">
+                  <input type="text" name="cpi" class="form-control" id="validationDefault08" placeholder=" Enter the CPI"  required>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-3 mb-3">
+                <label for="validationDefault03">Unemployment</label>
+                <input type="text" name="unemp" class="form-control" id="validationDefault03" placeholder="Enter Unemployment rate" required>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="validationDefault04">Size</label>
+                <input type="text" name="size" class="form-control" id="validationDefault04" placeholder="Enter size" required>
+              </div>
+              <div class="col-md-2 mb-3">
+                <label for="validationDefault05">Holiday</label>
+                <input type="text" name="holiday" class="form-control" id="validationDefault05" placeholder="Enter the day is holiday or not" required>
+              </div>
+            </div>
+              <div class="form-row">
+              <div class="col-md-2 mb-3">
+                <label for="validationDefault06">B</label>
+                <input type="text" name="b" class="form-control" id="validationDefault06" placeholder="Enter the value of B" required>
+              </div>
+              <div class="col-md-2 mb-3">
+                <label for="validationDefault07">C</label>
+                <input type="text" name="c" class="form-control" id="validationDefault07" placeholder="Enter the value of C" required>
+              </div>
+            </div>
+        
+            <div class="form-group">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                <label class="form-check-label" for="invalidCheck2">
+                  Check the details again.
+                </label>
+              </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Predict</button>
+          </form>
+          <div class="output">
+            <center>
+              <p><B>{{ prediction_text}}</B></p>
+            </center>
+          </div>
+
+    </section>
+    <hr />
+  </div>
+  <script>
+    function myFunction() {
+      var x = document.getElementById("Navbar");
+      if (x.className === "navbar-nav") {
+        x.className += " responsive";
+      } else {
+        x.className = "navbar-nav";
+      }
+    }
+    </script>
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>
