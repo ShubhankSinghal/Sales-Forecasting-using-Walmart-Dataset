@@ -20,7 +20,7 @@ def predict():
     int_features = [float(x) for x in request.form.values()]
     final_features = [np.array(int_features)]
     prediction = model.predict(final_features)
-    output = round(prediction[0], 2) 
+    output = round(prediction[0], 2)
     return render_template('Prediction.html', prediction_text='Predicted Weekly Sales:{}'.format(output))
 if __name__ == "__main__":
    app.run(debug=True, use_debugger=False, use_reloader=False)
